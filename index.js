@@ -35,8 +35,8 @@ function addNumbers(num1, num2) {
  * the returned value should look like: 'Goodbye, Andy. Have a great day.'
  * 
 */
-function sayGoodbye(/* code here */) {
-  /* code here */
+function sayGoodbye(name) {
+ return 'Goodbye, ' + name +'. Have a great day.'
 }
 
 /**
@@ -53,8 +53,8 @@ function sayGoodbye(/* code here */) {
  * Hint 1: The formula for converting celsius to fahrenheit is t*9/5 + 32 where t is the temperature in celsius.
  * Hint 2: There is a very easy way to round numbers in JS. Do a google search to find out how. 
 */
-function temperatureCtoF(/* code here */) {
-  /* code here */
+function temperatureCtoF(temp) {
+ return Math.round(temp * 9/5 + 32);
 }
 
 /**
@@ -74,8 +74,13 @@ function temperatureCtoF(/* code here */) {
  * 
  * Hint: You can call your `temperatureCtoF` function from inside `temperatureInF`.
 */
-function temperatureInF(/* code here */) {
-  /* code here */
+function temperatureInF(temp, unit) {
+ 
+  if(unit === "C"){
+   temp = temperatureCtoF(temp);
+   unit = "F";
+ }
+return temp + unit;
 }
 
 
@@ -95,8 +100,13 @@ function temperatureInF(/* code here */) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
-  /* code here */
+function makePersonObject(id, name, email) {
+  const personObject = {
+    id: id,
+    name: name,
+    email: email
+  }
+  return personObject;
 }
 
 /**
@@ -112,9 +122,10 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+function getName(makePersonObject) {
+  return ("Hello, my name is " + makePersonObject.name + " . ");
 }
+
 
 
 /**
@@ -132,9 +143,13 @@ function getName(/* code here */) {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
-  /* code here */
+function appleIndex(array) {
+  // let i = 0
+  // for(i = 0; i < appleIndex.length; i++);
+  return array.indexOf('apple');
+  
 }
+
 
 /**
  * ### Challenge `isItAnApple`
@@ -151,8 +166,16 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
-  /* code here */
+function isItAnApple(array) {
+for (let i = 0; i < array.length; i++){
+  if(array[i] !== 'apple'){
+    array[i] = false;
+  } else {
+    array [i] = true;
+  }
+
+}
+return array
 }
 
 
@@ -210,7 +233,8 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+ const index2 = inventory[index]
+ return `The is a ${index2.car_make} ${index2.car_model}`
 }
 
 /**
@@ -224,55 +248,64 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(inventory) {
+  const index = inventory.length - 1;
+  const make = inventory[index];
+  return `This is a ${make.car_make} ${make.car_model}`;
+}
+  
+
+
+// /**
+//  * ### Challenge `getModelYears`
+//  * 
+//  * @instructions
+//  * We need the years from every car in the inventory!
+//  * getModelYears takes a single argument:
+//  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
+//  * getModelYears returns an array containing all the 'car_year's in the inventory.
+// */
+function getModelYears(inventory) {
+  let years = [];
+  for(let i = 0; i < inventory.length; i++){
+    const carYear = inventory[i];
+    years.push(carYear.car_year)
+  }
+  return years;
 }
 
-/**
- * ### Challenge `getModelYears`
- * 
- * @instructions
- * We need the years from every car in the inventory!
- * getModelYears takes a single argument:
- *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
- * getModelYears returns an array containing all the 'car_year's in the inventory.
-*/
-function getModelYears(/* code here */) {
-  /* code here */
-}
 
-/**
- * ### Challenge `getCarInfoById`
- *  * * THIS ONE IS A STRETCH GOAL. ATTEMPT IT ONLY AFTER
- * COMPLETING ALL NON-STRETCH CHALLENGES IN THE REPOSITORY!
- * 
- * @instructions
- * getCarInfoById takes two arguments:
- *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
- *     (2) a number which is the desired car id (see how each car has its own unique id).
- * getCarInfoById returns a string in the format `This is a {car_make} {car_model}
- * 
- * For example, if getCarInfoById is invoked with the inventory and the number 1,
- * it will return `This is a Lincoln Navigator`.
-*/
+//  ### Challenge `getCarInfoById`
+//  *  * * THIS ONE IS A STRETCH GOAL. ATTEMPT IT ONLY AFTER
+//  * COMPLETING ALL NON-STRETCH CHALLENGES IN THE REPOSITORY!
+//  * 
+//  * @instructions
+//  * getCarInfoById takes two arguments:
+//  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
+//  *     (2) a number which is the desired car id (see how each car has its own unique id).
+//  * getCarInfoById returns a string in the format `This is a {car_make} {car_model}
+//  * 
+//  * For example, if getCarInfoById is invoked with the inventory and the number 1,
+//  * it will return `This is a Lincoln Navigator`.
+
 function getCarInfoById(/* code here */) {
   /* code here */
 }
 
-/**
- * ### Challenge `getOlderCars`
- * * THIS ONE IS A STRETCH GOAL. ATTEMPT IT ONLY AFTER
- * COMPLETING ALL NON-STRETCH CHALLENGES IN THE REPOSITORY!
- * 
- * @instructions
- * We need a utility to find older cars!
- * getOlderCars takes two arguments:
- *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
- *     (2) a number which is the desired max year.
- * getOlderCars returns an array containing all the cars
- * with a `car_year` which is at most the given desired max year,
- * in the same order as they appear in the original inventory.
-*/
+
+//  * ### Challenge `getOlderCars`
+//  * * THIS ONE IS A STRETCH GOAL. ATTEMPT IT ONLY AFTER
+//  * COMPLETING ALL NON-STRETCH CHALLENGES IN THE REPOSITORY!
+//  * 
+//  * @instructions
+//  * We need a utility to find older cars!
+//  * getOlderCars takes two arguments:
+//  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
+//  *     (2) a number which is the desired max year.
+//  * getOlderCars returns an array containing all the cars
+//  * with a `car_year` which is at most the given desired max year,
+//  * in the same order as they appear in the original inventory.
+
 function getOlderCars(/* code here */) {
   /* code here */
 }
