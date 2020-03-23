@@ -249,20 +249,22 @@ function getCarInfoByIndex(inventory, index) {
  * it will return `This is a Lincoln Town Car`.
 */
 function getLastCarInfo(inventory) {
-  const index = inventory.lenght - 1;
-  const make = inventory[index]
-  return `This is a ` ${make.car_make} ${make.car_model};
+  const index = inventory.length - 1;
+  const make = inventory[index];
+  return `This is a ${make.car_make} ${make.car_model}`;
 }
+  
 
-/**
- * ### Challenge `getModelYears`
- * 
- * @instructions
- * We need the years from every car in the inventory!
- * getModelYears takes a single argument:
- *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
- * getModelYears returns an array containing all the 'car_year's in the inventory.
-*/
+
+// /**
+//  * ### Challenge `getModelYears`
+//  * 
+//  * @instructions
+//  * We need the years from every car in the inventory!
+//  * getModelYears takes a single argument:
+//  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
+//  * getModelYears returns an array containing all the 'car_year's in the inventory.
+// */
 function getModelYears(inventory) {
   let years = [];
   for(let i = 0; i < inventory.length; i++){
@@ -272,38 +274,38 @@ function getModelYears(inventory) {
   return years;
 }
 
-/**
- * ### Challenge `getCarInfoById`
- *  * * THIS ONE IS A STRETCH GOAL. ATTEMPT IT ONLY AFTER
- * COMPLETING ALL NON-STRETCH CHALLENGES IN THE REPOSITORY!
- * 
- * @instructions
- * getCarInfoById takes two arguments:
- *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
- *     (2) a number which is the desired car id (see how each car has its own unique id).
- * getCarInfoById returns a string in the format `This is a {car_make} {car_model}
- * 
- * For example, if getCarInfoById is invoked with the inventory and the number 1,
- * it will return `This is a Lincoln Navigator`.
-*/
+
+//  ### Challenge `getCarInfoById`
+//  *  * * THIS ONE IS A STRETCH GOAL. ATTEMPT IT ONLY AFTER
+//  * COMPLETING ALL NON-STRETCH CHALLENGES IN THE REPOSITORY!
+//  * 
+//  * @instructions
+//  * getCarInfoById takes two arguments:
+//  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
+//  *     (2) a number which is the desired car id (see how each car has its own unique id).
+//  * getCarInfoById returns a string in the format `This is a {car_make} {car_model}
+//  * 
+//  * For example, if getCarInfoById is invoked with the inventory and the number 1,
+//  * it will return `This is a Lincoln Navigator`.
+
 function getCarInfoById(/* code here */) {
   /* code here */
 }
 
-/**
- * ### Challenge `getOlderCars`
- * * THIS ONE IS A STRETCH GOAL. ATTEMPT IT ONLY AFTER
- * COMPLETING ALL NON-STRETCH CHALLENGES IN THE REPOSITORY!
- * 
- * @instructions
- * We need a utility to find older cars!
- * getOlderCars takes two arguments:
- *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
- *     (2) a number which is the desired max year.
- * getOlderCars returns an array containing all the cars
- * with a `car_year` which is at most the given desired max year,
- * in the same order as they appear in the original inventory.
-*/
+
+//  * ### Challenge `getOlderCars`
+//  * * THIS ONE IS A STRETCH GOAL. ATTEMPT IT ONLY AFTER
+//  * COMPLETING ALL NON-STRETCH CHALLENGES IN THE REPOSITORY!
+//  * 
+//  * @instructions
+//  * We need a utility to find older cars!
+//  * getOlderCars takes two arguments:
+//  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
+//  *     (2) a number which is the desired max year.
+//  * getOlderCars returns an array containing all the cars
+//  * with a `car_year` which is at most the given desired max year,
+//  * in the same order as they appear in the original inventory.
+
 function getOlderCars(/* code here */) {
   /* code here */
 }
